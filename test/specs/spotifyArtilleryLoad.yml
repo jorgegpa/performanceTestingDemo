@@ -1,0 +1,13 @@
+config:
+  target: 'https://test-api.k6.io'
+  ensure:
+   - p95: 2500
+     maxErrorRate: 1
+  phases:
+    - duration: 30
+      arrivalRate: 10
+      rampTo: 100
+scenarios:
+   - flow:
+     - get:
+         url: "/public/crocodiles/1"
